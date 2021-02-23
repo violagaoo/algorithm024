@@ -4,14 +4,14 @@ import "fmt"
 
 //所有子集
 func subsets(nums []int) [][]int {
-	res := [][]int{}
+	res := [][]int{} //切片是引用
 
 	var dfs func(i int, list []int)
 	dfs = func(i int, list []int) {
 		if i == len(nums) {
 			tmp := make([]int, len(list))
 			copy(tmp, list)
-			res = append(res, tmp) //因为时
+			res = append(res, tmp) //因为res
 			return
 		}
 		list = append(list, nums[i])

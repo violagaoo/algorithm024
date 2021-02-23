@@ -28,7 +28,7 @@ func solve(queens []int, n, row, columns, diagonals1, diagonals2 int) {
 	for availablePositions != 0 {
 		position := availablePositions & (-availablePositions)
 		availablePositions = availablePositions & (availablePositions - 1)
-		column := bits.OnesCount(uint(position - 1))
+		column := bits.OnesCount(uint(position - 1)) //查找1的个数
 		queens[row] = column
 		solve(queens, n, row+1, columns|position, (diagonals1|position)>>1, (diagonals2|position)<<1)
 		queens[row] = -1
